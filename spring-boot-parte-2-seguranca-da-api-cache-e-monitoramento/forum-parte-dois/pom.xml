@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.alura</groupId>
-	<artifactId>forum</artifactId>
+	<artifactId>forum-spring-boot-parte-2-seguranca-da-api-cache-e-monitoramento</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>forum</name>
+	<name>forum-spring-boot-parte-2-seguranca-da-api-cache-e-monitoramento</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
