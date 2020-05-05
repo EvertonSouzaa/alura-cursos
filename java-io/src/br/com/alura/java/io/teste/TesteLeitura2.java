@@ -8,7 +8,8 @@ public class TesteLeitura2 {
 
 	public static void main(String[] args) throws Exception {
 
-		Scanner scanner = new Scanner(new File("contas.csv"));
+		// construtor que recebe o arquivo e tipo de encode(UTF-8) desse arquivo
+		Scanner scanner = new Scanner(new File("contas.csv"), "UTF-8"); 
 
 		// enquanto tiver linhas, imprime
 		while (scanner.hasNextLine()) {

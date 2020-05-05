@@ -10,7 +10,7 @@ public class TesteEscritaPrintStreamPrintWriter {
 //		PrintStream ps = new PrintStream("lorem2.txt");
 		// Recomendado usar quando se quer especificar caminhos longos do arquivo
 //		PrintStream ps = new PrintStream(new File("lorem2.txt"));
-		PrintWriter ps = new PrintWriter("lorem2.txt"); // outra alternativa
+		PrintWriter ps = new PrintWriter("lorem2.txt", "UTF-8"); // outra alternativa
 
 		ps.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod");
 		ps.println();

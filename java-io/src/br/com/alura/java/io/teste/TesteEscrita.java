@@ -24,7 +24,7 @@ public class TesteEscrita {
 		InputStream fis = new FileInputStream("lorem.txt"); // POLIMORFISMO, tipo mais generico, ja que FileInputStream é uma herança de InputStream
 		// Classe que transforma os bits e bytes em caracter
 //		InputStreamReader isr = new InputStreamReader(fis);
-		Reader isr = new InputStreamReader(fis); // POLIMORFISMO, tipo mais generico, ja que InputStreamReader é uma herança de Reader
+		Reader isr = new InputStreamReader(fis, "UTF-8"); // POLIMORFISMO, tipo mais generico, ja que InputStreamReader é uma herança de Reader
 		// Classe que ajuda a melhorar o InputStreamReader
 		BufferedReader br = new BufferedReader(isr); // Apesar desta classe ser um Reader, ela nao possui o metodo readline()
 		
