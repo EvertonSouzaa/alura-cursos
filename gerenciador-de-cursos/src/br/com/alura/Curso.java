@@ -45,5 +45,22 @@ public class Curso {
 	public void adiciona(Aula aula) {
 		this.aulas.add(aula);
 	}
+	
+	// metodo para pegar o tempo total do curso
+	public int getTempoTotal() {
+		int tempoTotal = 0;
+		// foreach, para cada aula, o tempo total, vale ele mesmo
+		for (Aula aula : aulas) {
+			tempoTotal += aula.getTempo();
+		}
+		return tempoTotal;
+		// Outra forma de fazer usando stream() do Java 8
+//		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+	}
+	
+	@Override
+	public String toString() {
+		return "[Curso: " + nome + ", tempo total: " + this.getTempoTotal() + "]";
+	}
 
 }
