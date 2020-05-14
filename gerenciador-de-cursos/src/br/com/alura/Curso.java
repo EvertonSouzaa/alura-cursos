@@ -18,12 +18,28 @@ public class Curso {
 	// Usando LinkedHashSet a ordem dos alunos sera da mesma
 	// forma que foram adicionados, mas mesmo assim,
 	// nao e possivel acessar o index deles
+	// O LinkedHashSet nos dá a performance de um HashSet
+	// mas com acesso previsível e ordenado.
 //	private Set<Aluno> alunos = new LinkedHashSet<>();
 	
 	// TreeSet só funciona se a classe que no qual ele sera usado,
 	// implementa o Comparable. Ele tbm tem um construtor que recebe
 	// um comparator, como alternativa para ordenaçao.
 //	private Set<Aluno> alunos = new TreeSet<>();
+	
+	/**
+	 * Como se lê: TreeSet(Comparator<? super E> comparator)
+	 * O Javadoc apresenta o atributo do construtor dessa forma. Gostaria de saber como se lê isso, mais especificamente essa parte: <? super E> .
+	 * 
+	 * RESPOSTA:
+	 * Esse conceito é chamado de Generics dentro da linguagem.
+	 *
+	 * O "?" significa qualquer tipo e o "super E" significa que que seja igual ou pai de E. Por sua vez, o E é informado pelo programador que for usar a classe TreeSet através do <>:
+	 *
+	 * Set<String> s = new TreeSet<>; // Meu "E" é String nesse caso
+	 * 
+	 * Para o exemplo acima, meu comparator precisa ser "qualquer tipo que seja igual a String ou pai de String".
+	 */
 	
 	// HashSet trabalha com TABELA DE ESPALHAMENTO
 	private Set<Aluno> alunos = new HashSet<>(); 
