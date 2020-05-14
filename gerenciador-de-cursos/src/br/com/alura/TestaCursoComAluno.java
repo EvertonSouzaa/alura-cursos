@@ -1,5 +1,9 @@
 package br.com.alura;
 
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Vector;
+
 public class TestaCursoComAluno {
 
 	public static void main(String[] args) {
@@ -23,10 +27,37 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a3);
 		
 		System.out.println("Todos os alunos matriculados: ");
+		
+		// #### CÓDIGO LEGADO ou ANTIGO ####
+		
+		// ITERATOR, é um OBJETO que todas as coleções dão acesso, e serve
+		// para iterar os objetos, as referencias que estao dentro da sacola!
+		// Adiciona os dados sem uma ordem especifica!
+		Set<Aluno> alunos = javaColecoes.getAlunos();
+		// Toda COLEÇÃO tem iterators!!
+		Iterator<Aluno> iterador = alunos.iterator();
+		// Enquanto esse iterador de alunos tem um proximo para ler, me devolve o proximo!
+		while(iterador.hasNext()) {
+			Aluno proximo = iterador.next();
+			System.out.println(proximo);
+		}
+		
+		// Vector trabalha com THREAD SAFE, ele consegue adicionar
+		// varios elementos ao mesmo tempo, de forma segura!
+		Vector<Aluno> vetor = new Vector<>();
+		
+		// #### FIM CÓDIGO LEGADO ou ANTIGO ####
+		
+		// JAVA 1.6, percorrendo um Set - Java for-each Loop (Enhanced for Loop)
+//		for (Aluno a : javaColecoes.getAlunos()) {
+//			System.out.println(a);
+//		}
+		
 		// Imprime os alunos e seus numeros de matricula
-		javaColecoes.getAlunos().forEach(a -> {
-			System.out.println(a);
-		});
+		// Este for percorre todos os alunos!!!
+//		javaColecoes.getAlunos().forEach(a -> {
+//			System.out.println(a);
+//		});
 		
 		// chama o metodo booleano usando o contains() para verificar se o aluno esta matriculado
 		System.out.println("O aluno " + a1 + " esta matriculado?");

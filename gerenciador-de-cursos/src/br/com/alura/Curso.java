@@ -14,7 +14,19 @@ public class Curso {
 	private String instrutor;
 	// Lista de aulas
 	private List<Aula> aulas = new ArrayList<Aula>();
-	private Set<Aluno> alunos = new HashSet<>();
+	
+	// Usando LinkedHashSet a ordem dos alunos sera da mesma
+	// forma que foram adicionados, mas mesmo assim,
+	// nao e possivel acessar o index deles
+//	private Set<Aluno> alunos = new LinkedHashSet<>();
+	
+	// TreeSet só funciona se a classe que no qual ele sera usado,
+	// implementa o Comparable. Ele tbm tem um construtor que recebe
+	// um comparator, como alternativa para ordenaçao.
+//	private Set<Aluno> alunos = new TreeSet<>();
+	
+	// HashSet trabalha com TABELA DE ESPALHAMENTO
+	private Set<Aluno> alunos = new HashSet<>(); 
 
 	// construtor
 	public Curso(String nome, String instrutor) {
