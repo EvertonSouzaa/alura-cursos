@@ -2,8 +2,11 @@ package br.com.alura;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 // Classe para agrupar as info dos cursos e tbm para conter as info das aulas
@@ -43,6 +46,10 @@ public class Curso {
 	
 	// HashSet trabalha com TABELA DE ESPALHAMENTO
 	private Set<Aluno> alunos = new HashSet<>(); 
+	
+	// Map, vai mapear, dado um numero inteiro, um aluno correspondente!
+	// dado uma matricula, me devolva um aluno
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>();
 
 	// construtor
 	public Curso(String nome, String instrutor) {
@@ -97,7 +104,12 @@ public class Curso {
 
 	// metodo para matricular um aluno
 	public void matricula(Aluno aluno) {
+		// adiciona um aluno ao Set de Aluno
 		this.alunos.add(aluno);
+		// pega o mapa, e coloca uma relação entre o numero de matricula do aluno, com ele mesmo!
+		// a KEY(chave) sera o numero de matricula, e o VALUE(valor) será o aluno!
+		// PUT serve para adicionar elementos a um Map!
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 	}
 	
 	// metodo para pegar o conjunto de alunos imutaveis
@@ -108,6 +120,37 @@ public class Curso {
 	// metodo que verifica se o aluno esta matriculado
 	public boolean estaMatriculado(Aluno aluno) {
 		return this.alunos.contains(aluno);
+	}
+
+	public Aluno buscaMatriculado(int numero) {
+		// Se esse matriculaParaAluno (!)NÃO CONTÉM esse numero, jogue uma Exception
+		if (!matriculaParaAluno.containsKey(numero))
+			throw new NoSuchElementException("Matricula não encontrada " + numero);
+		return matriculaParaAluno.get(numero);
+		
+		/**
+		// Retorna a chave(KEY) que esta sendo mapeada ou ou NULL
+		// (comportamento padrão do Map) caso nao encontre o valor passado!
+		return matriculaParaAluno.get(numero);
+		*/
+		
+		/**
+		// Para cada aluno existente
+		for (Aluno aluno : alunos) {
+			// Verifica se o codigo de matricula é igual ao numero que foi passado!
+			if (aluno.getNumeroMatricula() == numero) {
+				// Se der TRUE, retorna o aluno
+				return aluno;
+				// Se der FALSE, vai para o próximo, próximo...
+			}
+		}
+		// E no final, caso nao encontre, dará NULL
+		// É UMA BOA PRÁTICA EVITAR O null, ele deve ser um retorno RARO!
+//		return null;
+		// Para NÃO retornar NULL, jogaremos(lançamos) uma Exception
+		throw new NoSuchElementException("Matricula não encontrada " + numero);
+		*/
+		
 	}
 	
 	
