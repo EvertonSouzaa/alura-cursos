@@ -61,17 +61,27 @@ public class Curso {
 //		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
 	}
 	
+	// imprime de forma elegante o objeto Curso
 	@Override
 	public String toString() {
 		return "[Curso: " + nome + ", tempo total: " + this.getTempoTotal() + "]";
 	}
 
+	// metodo para matricular um aluno
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
 	}
 	
+	// metodo para pegar o conjunto de alunos imutaveis
 	public Set<Aluno> getAlunos() {
 		return Collections.unmodifiableSet(alunos);
 	}
+
+	// metodo que verifica se o aluno esta matriculado
+	public boolean estaMatriculado(Aluno aluno) {
+		return this.alunos.contains(aluno);
+	}
+	
+	
 
 }

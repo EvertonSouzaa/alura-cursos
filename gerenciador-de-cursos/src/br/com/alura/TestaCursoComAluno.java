@@ -28,6 +28,22 @@ public class TestaCursoComAluno {
 			System.out.println(a);
 		});
 		
+		// chama o metodo booleano usando o contains() para verificar se o aluno esta matriculado
+		System.out.println("O aluno " + a1 + " esta matriculado?");
+		System.out.println(javaColecoes.estaMatriculado(a1));
+		
+		// matriculando um novo aluno atraves do construtor
+		Aluno turini = new Aluno("Rodrigo Turini", 34672);
+		System.out.println("E esse Turini, está matriculado?");
+		System.out.println(javaColecoes.estaMatriculado(turini));
+		
+		System.out.println("O a1 é equals ao Turini?");
+		// Se dois objetos são EQUALS eles PRECISAM ter o mesmo HASHCODE,
+		// caso ao contrário, eles não irão funcionar!
+		System.out.println(a1.equals(turini));
+		
+		// obrigatoriamente o seguinte é true
+		System.out.println(a1.hashCode() == turini.hashCode());
 	}
 
 }
